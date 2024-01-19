@@ -1,0 +1,24 @@
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.list{
+    display: flex;
+    list-style: none;
+    width: 60vw;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.cardImage{
+    width: 200px;
+    height: 200px;
+}
+
+.cardContainer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
