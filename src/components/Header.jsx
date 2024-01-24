@@ -1,9 +1,19 @@
 import { useState } from "react";
-
+import Logo from "../asset/img/Logo.png"
 export const Title = () => (
-    <h1 id="title" className="title" key="h1">
-        Food Villa
-    </h1>
+    <div className="Logo">
+        <img src={Logo} width={100} height={100} alt="" />
+    <div id="title" className="title" key="h1">
+        <p>
+            Bharat
+        </p>
+        
+        <p>
+            Dhaba
+        </p>
+    </div>
+    
+    </div>
 )
 
 

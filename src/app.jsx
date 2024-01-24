@@ -5,12 +5,13 @@ import ReactDOM from "react-dom/client"
 import HeaderComponent from "./components/Header";
 // Named import
 import { Title } from "./components/Header"
-
+import { createBrowserRouter , RouterProvider } from "react-router-dom";
 
 
 import { Footer } from "./components/Footer";
 import Body from "./components/Body";
-import Shimmer from "./components/Shimmer";
+import About from "./components/About";
+import ErrorPage from "./components/ErrorPage";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -22,5 +23,21 @@ const AppLayout = () => (
     </React.Fragment>
 )
 
+const appRouter = createBrowserRouter([
+    {
+        path:"/",
+        element:<AppLayout/>,
+        errorElement:<ErrorPage/>
+    },
+    {
+        path:"/about",
+        element:<About/>
+    }
+])
 
-root.render(<AppLayout />);
+
+
+
+root.render(
+    <RouterProvider router={appRouter}/>
+);
