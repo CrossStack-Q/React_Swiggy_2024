@@ -7,8 +7,7 @@ function ErrorPage() {
   return (
     <div>
         <p>Error page</p>
-        <p>{err.status}</p>
-        <p>{err.statusText}</p>
+        <p>{err.status+"  "+err.statusText}</p>
     </div>
   )
 }
