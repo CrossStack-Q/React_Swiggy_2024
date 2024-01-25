@@ -14,6 +14,7 @@ import About from "./components/About";
 import ErrorPage from "./components/ErrorPage";
 import Contact from "./components/Contact";
 import RestaurantMenu from "./components/RestaurantMenu";
+import SignupLogin from "./components/Logins/SignupLogin";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -46,6 +47,10 @@ const appRouter = createBrowserRouter([
             {
                 path:"/restaurant/:id",
                 element:<RestaurantMenu/>
+            },
+            {
+                path:"/login",
+                element:<SignupLogin/>
             }
         ]
     },
