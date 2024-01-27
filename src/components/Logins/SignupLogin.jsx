@@ -7,16 +7,16 @@ function SignupLogin() {
         initialValues: {
             firstName: '',
             lastName: '',
-            email: ''
+            email: '',
+            passward:'',
         },
         onSubmit: values => {
             alert(JSON.stringify(values, null, 2));
         },
     });
     return (
-        <form>
+        <form className='form-data'>
             <label htmlFor="firstName">First Name</label>
-
             <input
                 id="firstName"
                 name="firstName"
@@ -44,6 +44,19 @@ function SignupLogin() {
                 onChange={formik.handleChange}
                 value={formik.values.email}
             />
+
+            <label htmlFor="passward">
+                Password
+            </label>
+            <input
+                type="passward"
+                id="passward"
+                name='passward'
+                onChange={formik.handleChange}
+                value={formik.values.passward}
+            />
+
+            
 
             <button type='submit'>
                 Submit

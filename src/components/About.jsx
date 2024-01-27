@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link, Outlet } from 'react-router-dom'
 
 function About() {
   return (
@@ -10,6 +11,12 @@ function About() {
             {" "}
             This is the Namaste React ka About wala Page .
         </p>
+        
+        <Link to={"/about/profile"}>
+        Profile Page
+        </Link>
+        
+        <Outlet/>
     </div>
   )
 }

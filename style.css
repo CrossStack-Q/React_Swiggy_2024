@@ -90,3 +90,35 @@ a{
     color: inherit;
     cursor: pointer;
 }
+
+
+.form-data{
+    display: flex;
+    flex-direction: column;  
+    max-width: fit-content;
+    margin: auto;  
+}
+
+.form-data>label{
+    text-align: center;
+    
+    margin-top: 20px;
+    margin-bottom: 2px;
+}
+
+.form-data>input{
+    border-top: none;
+    margin-bottom: 5px;
+    border-left: 2px solid rgb(71, 69, 69);
+    border-right: 2px solid rgb(71, 69, 69);
+    border-bottom: 2px solid rgb(71, 69, 69);
+}
+
+.form-data>input:focus{
+    outline: none;
+}
+
+.profile-outlet{
+    border: 4px solid goldenrod;
+    height: 400px;
+}
