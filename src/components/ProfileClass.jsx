@@ -16,7 +16,7 @@ class ProfileClass extends React.Component {
     }
 
     componentDidMount(){
-        console.log("Component ki aag r")
+        console.log("Component ki aag ")
     }
 
 
