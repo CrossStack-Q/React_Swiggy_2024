@@ -1,11 +1,11 @@
-import React from "react"
+import React, { lazy , Suspense } from "react"
 import ReactDOM from "react-dom/client"
 
 // Default import
 import HeaderComponent from "./components/Header";
 // Named import
 import { Title } from "./components/Header"
-import { createBrowserRouter , Outlet, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 
 
 import { Footer } from "./components/Footer";
@@ -17,53 +17,66 @@ import RestaurantMenu from "./components/RestaurantMenu";
 import SignupLogin from "./components/Logins/SignupLogin";
 import Profile from "./components/Profile";
 import ProfileClass from "./components/ProfileClass"
+import Shimmer from "./components/Shimmer";
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
+
+
+
+
+const Grocery = lazy(()=> import("./components/Grocery"))
+
+
+
 
 const AppLayout = () => (
     <React.Fragment>
         <HeaderComponent />
-        <Outlet/>
+        <Outlet />
         <Footer />
     </React.Fragment>
 )
 
 const appRouter = createBrowserRouter([
     {
-        path:"/",
-        element:<AppLayout/>,
-        errorElement:<ErrorPage/>,
-        children:[
+        path: "/",
+        element: <AppLayout />,
+        errorElement: <ErrorPage />,
+        children: [
             {
-                path:"/",
-                element:<Body/>
+                path: "/",
+                element: <Body />
             },
             {
-                path:"/profilec",
-                element:<ProfileClass name={"Anurag from Class"} />
+                path: "/profilec",
+                element: <ProfileClass name={"Anurag from Class"} />
 
             }
             ,
             {
-                path:"/about",
-                element:<About/>,
-                children:[
+                path: "/about",
+                element: <About />,
+                children: [
                     {
-                        path:"profile",
-                        element:<Profile/>
+                        path: "profile",
+                        element: <Profile />
                     }
                 ]
+            }, {
+                path: "/grocery",
+                element:<Suspense fallback={<Shimmer/>}> <Grocery /> </Suspense>,
             },
             {
-                path:"contact",
-                element:<Contact/>
+                path: "contact",
+                element: <Contact />
             },
             {
-                path:"/restaurant/:id",
-                element:<RestaurantMenu/>
+                path: "/restaurant/:id",
+                element: <RestaurantMenu />
             },
             {
-                path:"/login",
-                element:<SignupLogin/>
+                path: "/login",
+                element: <SignupLogin />
             }
         ]
     },
@@ -73,5 +86,5 @@ const appRouter = createBrowserRouter([
 
 
 root.render(
-    <RouterProvider router={appRouter}/>
+    <RouterProvider router={appRouter} />
 );

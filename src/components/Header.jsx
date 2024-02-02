@@ -1,6 +1,11 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import Logo from "../asset/img/Logo.png"
+import useOnlineStatus from "../utils/useOnlineStatus";
+
+
+
+
 export const Title = () => (
     <Link to={"/"} className="Logo">
         <img src={Logo} width={100} height={100} alt="" />
@@ -28,19 +33,26 @@ export const Title = () => (
 
 export default function HeaderComponent() {
 
+
+    const onlineStatus = useOnlineStatus();
+
     const [authenticateUser, setAuthenticateUser] = useState(false);
     return (
         <div className="header">
             <Title />
             <div>
                 <ul className="list">
-                    <li>Home</li>
+                    <li>
+                        { onlineStatus ? "Online" : "offline"}
+                    </li>
                     <li>
                         <Link to={"/about"}>
                             About
                         </Link>
                     </li>
-                    <li>Careers</li>
+                    <Link to="/grocery">
+                    <li>Grocery</li>
+                    </Link>
                     <li>
                         <Link to={"/contact"}>
                         Contact

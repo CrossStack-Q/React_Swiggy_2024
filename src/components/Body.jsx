@@ -3,6 +3,7 @@ import { restrautList } from "../config"
 import Card from "./Card"
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 
 function filterData1(searchText, restaurants) {
@@ -43,9 +44,19 @@ function Body() {
 
     // if(!AllRestaurants) return null;
 
+    const onlineStatus = useOnlineStatus();
+    console.log(onlineStatus)
+    if(!onlineStatus){
+        return (
+            <div>
+                you are offline
+            </div>
+        )
+    }
+     
 
 
-
+    
 
 
 
@@ -58,13 +69,14 @@ function Body() {
                 }} />
                 <button className="search-btn" onClick={() => {
                     const data = filterData1(searchText.toLowerCase(), AllRestaurants);
-
+ 
                     setFilteredRestaurants(data);
 
                 }} >
                     Search
                 </button>
             </div>
+
             {filteredRestaurants?.length === 0 ? <h1>No Item Found</h1> : (
                 <div className="cardContainer">
                     {
